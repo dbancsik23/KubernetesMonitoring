@@ -75,3 +75,5 @@ def addproduct():
 if __name__ == "__main__":
     logging.basicConfig(filename='logs.log', level=logging.DEBUG)
     app.run(host="0.0.0.0", debug=True, port=3251)
+
+#TODO add datetime to the logs!
