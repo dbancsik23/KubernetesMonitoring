@@ -42,10 +42,11 @@ def hello():
 def addproduct():
     if request.method == "POST":
         content_type = request.headers.get('Content-Type')
-        if (content_type == 'application/json'):
+        if content_type == 'application/json':
             data = request.json
             try:
-                newproduct = Product(ProductName=data['ProductName'], ProductCode=data['ProductCode'], Price=data['Price'])
+                newproduct = Product(ProductName=data['ProductName'], ProductCode=data['ProductCode'],
+                                     Price=data['Price'])
                 db.session.add(newproduct)
                 db.session.commit()
                 app.logger.info(f"{newproduct}")
@@ -60,13 +61,14 @@ def addproduct():
             try:
                 check_product = Product.query.filter_by(ProductCode=productcode).first()
                 data = {
-                "ProductName":f"{check_product.ProductName}",
-                "ProductCode":f"{check_product.ProductCode}",
-                "Price":f"{check_product.Price}",
-                "Added":f"{check_product.created_at}"
-                 }
+                        "ProductName": f"{check_product.ProductName}",
+                        "ProductCode": f"{check_product.ProductCode}",
+                        "Price": f"{check_product.Price}",
+                        "Added": f"{check_product.created_at}"
+                        }
                 return data, 200
             except:
+                app.logger.error(f"NOT FOUND {productcode}")
                 return f"{productcode} Not found", 404
 
 
