@@ -51,9 +51,11 @@ def addproduct():
                 db.session.commit()
                 app.logger.info(f"{newproduct}")
             except:
+                app.logger.error(f"{data['ProductCode']} already exists!")
                 return f"{data['ProductCode']} already exists! Please check and try again!", 400
             return "", 200
-        return "Content-Type not supported!"
+        app.logger.error(f"Content-Type not supported!")
+        return "Content-Type not supported!", 400
     if request.method == "GET":
         productcode = request.args.get('ProductCode')
         app.logger.info(f"Querry for {productcode}")
