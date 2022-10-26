@@ -1,5 +1,4 @@
 from flask import Flask, request
-from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import logging
@@ -8,7 +7,6 @@ import datetime
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
-api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] =\
         'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
