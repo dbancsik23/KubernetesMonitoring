@@ -1,10 +1,10 @@
 from flask import Flask, request
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import logging
 import os
-import json
+import datetime
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
@@ -40,6 +40,8 @@ def hello():
 
 @app.route("/api/v1/product", methods=["POST","GET"])
 def addproduct():
+    dt = datetime.datetime.now()
+    timestamp = f'[{dt.strftime("%d/%m/%Y, %H:%M:%S")}]'
     if request.method == "POST":
         content_type = request.headers.get('Content-Type')
         if content_type == 'application/json':
@@ -49,16 +51,16 @@ def addproduct():
                                      Price=data['Price'])
                 db.session.add(newproduct)
                 db.session.commit()
-                app.logger.info(f"{newproduct}")
+                app.logger.info(f"{timestamp} {newproduct}")
             except:
-                app.logger.error(f"{data['ProductCode']} already exists!")
-                return f"{data['ProductCode']} already exists! Please check and try again!", 400
+                app.logger.error(f"{timestamp} {data['ProductCode']} already exists!")
+                return f"{timestamp} {data['ProductCode']} already exists! Please check and try again!", 400
             return "", 200
         app.logger.error(f"Content-Type not supported!")
         return "Content-Type not supported!", 400
     if request.method == "GET":
         productcode = request.args.get('ProductCode')
-        app.logger.info(f"Querry for {productcode}")
+        app.logger.info(f"{timestamp} Query for {productcode}")
         if productcode:
             try:
                 check_product = Product.query.filter_by(ProductCode=productcode).first()
@@ -70,12 +72,12 @@ def addproduct():
                         }
                 return data, 200
             except:
-                app.logger.error(f"NOT FOUND {productcode}")
+                app.logger.error(f"{timestamp} NOT FOUND {productcode}")
                 return f"{productcode} Not found", 404
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='logs.log', level=logging.DEBUG)
+    logging.basicConfig(filename='logs.log', level=logging.DEBUG, datefmt='%Y-%m-%d %H:%M:%S')
     app.run(host="0.0.0.0", debug=True, port=3251)
 
 #TODO add datetime to the logs!
