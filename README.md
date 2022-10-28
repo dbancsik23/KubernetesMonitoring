@@ -1,10 +1,10 @@
 # KubernetesMonitoring
 ## ELK Stack installation on Kubernetes with Minikube
 
-### Requirements : \
-  docker\
-  minikube\
-  helm\
+### Requirements :
+  docker
+  minikube
+  helm
 
 ### Commands: 
   helm repo add elastic https://helm.elastic.co
