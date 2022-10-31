@@ -7,7 +7,7 @@
   helm
 
 ### Commands: 
-  helm repo add elastic https://helm.elastic.co\
+  helm repo add elastic https://helm.elastic.co \
   helm repo update
   #### Elasticsearch:
     helm install elk-elasticsearch elastic/elasticsearch -f values-2.yaml
