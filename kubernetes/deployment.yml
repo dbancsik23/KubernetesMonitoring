@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-docker
+spec:
+  selector:
+    matchLabels:
+      app: python-docker
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: python-docker
+    spec:
+      containers:
+      - name: python-docker
+        image: david23bs/kubernetes-python-microserv:latest
+        ports:
+        - containerPort: 3251
