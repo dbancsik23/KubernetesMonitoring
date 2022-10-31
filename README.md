@@ -2,13 +2,13 @@
 ## ELK Stack installation on Kubernetes with Minikube
 
 ### Requirements :
-  docker
-  minikube
-  helm
+    docker \
+    minikube \
+    helm \
 
 ### Commands: 
-  helm repo add elastic https://helm.elastic.co \
-  helm repo update
+    helm repo add elastic https://helm.elastic.co \
+    helm repo update
   #### Elasticsearch:
     helm install elk-elasticsearch elastic/elasticsearch -f values-2.yaml
       kubectl port-forward svc/elasticsearch-master 9200
