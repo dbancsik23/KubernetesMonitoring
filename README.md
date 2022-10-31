@@ -18,7 +18,9 @@
       curl http://localhost:9200/_cat/indices
     helm install filebeat elastic/filbeat
   ### Python-microserv:
-    kubectl apply -f .\deployment.yml
+    kubectl apply -f pv.yml
+    kubectl apply -f pvc.yml
+    kubectl apply -f deployment.yml
       kubectl port-forward deployment/python-docker 3251
 
 
