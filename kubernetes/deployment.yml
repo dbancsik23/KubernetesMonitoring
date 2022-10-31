@@ -15,11 +15,11 @@ spec:
     spec:
       containers:
       - name: python-docker
-        image: david23bs/kubernetes-python-microserv:latest
+        image: david23bs/python-k8s-microserv:latest
         ports:
         - containerPort: 3251
         volumeMounts:
-        - mountPath: "/data"
+        - mountPath: /mnt/data
           name: task-pv-volume
       volumes:
       - name: task-pv-volume

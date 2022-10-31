@@ -5,11 +5,11 @@
     labels:
       type: local
   spec:
-    storageClassName: manual 
+    storageClassName: ""
     capacity:
       storage: 2Gi
     accessModes:
-      - ReadWriteOnce 
+      - ReadWriteOnce
     persistentVolumeReclaimPolicy: Retain
     hostPath:
-      path: "/mnt/data" 
+      path: /mnt/data
