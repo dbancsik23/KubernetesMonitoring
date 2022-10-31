@@ -3,10 +3,11 @@ kind: Deployment
 metadata:
   name: python-docker
 spec:
+
   selector:
     matchLabels:
       app: python-docker
-  replicas: 4
+  replicas: 2
   template:
     metadata:
       labels:
@@ -17,3 +18,10 @@ spec:
         image: david23bs/kubernetes-python-microserv:latest
         ports:
         - containerPort: 3251
+        volumeMounts:
+        - mountPath: "/data"
+          name: task-pv-volume
+      volumes:
+      - name: task-pv-volume
+        persistentVolumeClaim:
+          claimName: task-pvc-volume
