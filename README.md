@@ -20,7 +20,7 @@
 ### Commands: 
     helm repo add elastic https://helm.elastic.co
     helm repo update
-#### Elasticsearch:
+### Elasticsearch:
     helm install elk-elasticsearch elastic/elasticsearch -f values.yaml
       kubectl port-forward svc/elasticsearch-master 9200
     helm install kibana elastic/kibana
