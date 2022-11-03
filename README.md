@@ -33,5 +33,11 @@
     kubectl apply -f pvc.yml
     kubectl apply -f deployment.yml
     kubectl port-forward deployment/python-docker 3251
+### Grafana:
+    helm repo add grafana https://grafana.github.io/helm-charts
+    helm repo update
+    helm install grafana grafana/grafana -f .\values.yml
+    kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}"
+    kubectl --namespace default port-forward deployment/grafana 3000
 
 
