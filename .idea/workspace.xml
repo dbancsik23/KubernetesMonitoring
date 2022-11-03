@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4fcc5e1a-ba47-48c3-8421-81893882b403" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/logging.conf" beforeDir="false" afterPath="$PROJECT_DIR$/application/logging.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/pv.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/pv.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/pvc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/pvc.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

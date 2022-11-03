@@ -1,0 +1,8 @@
+persistence:
+  type: pvc
+  enabled: true
+  storageClassName: standard
+  name: task-pvc-volume
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
